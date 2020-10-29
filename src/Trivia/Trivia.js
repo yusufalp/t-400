@@ -54,6 +54,7 @@ class Question extends React.Component {
     });
   }
   handleSubmit = (e) => {
+    // if nothing is selected, a message is displayed
     e.preventDefault();
     if (!this.state.userChoice) {
       this.setState({
@@ -61,6 +62,7 @@ class Question extends React.Component {
       })
       return
     }
+
     this.setState({
       showFeedback: true
     });
@@ -85,6 +87,7 @@ class Question extends React.Component {
       showFeedback: false,
       feedback: ''
     });
+
     // show the results page after the 10 questions
     if (this.state.currentQuestionNumber < 10) {
       this.componentDidMount();
@@ -94,6 +97,7 @@ class Question extends React.Component {
       })
     }
   }
+  // user can start over with random question by clicking the start over button on the result page
   handleStartOver = () => {
     this.props.history.push('/')
   }
@@ -101,8 +105,10 @@ class Question extends React.Component {
     return (
       <div className='main'>
         <div className={`${this.state.isDone ? 'hidden' : ''}`}>
+          {/* scoreboard */}
           <h2>Question #: {this.state.currentQuestionNumber}</h2>
           <h3>Correct: {this.state.correct} - Incorrect: {this.state.incorrect}</h3>
+          {/* question and the choices displayed one at a time */}
           <form>
             <p>{this.state.currentQuestion.question || ''}</p>
             {this.state.currentChoices.map((choice, i) =>
@@ -117,7 +123,9 @@ class Question extends React.Component {
                 {choice}
               </label>
             )}
+            {/* if no answers is chosen on submit, message appears */}
             <p className={`selection-feed ${this.state.isAnswerChosen ? 'hidden' : ''}`}>You MUST select an answer</p>
+            {/* feedback displayed depending on the user choice */}
             <p className={`feedback ${this.state.showFeedback ? '' : 'hidden'}`}>{this.state.feedback}</p>
             <button
               className={`${this.state.showFeedback ? 'hidden' : ''}`}
@@ -133,11 +141,18 @@ class Question extends React.Component {
             </button>
           </form>
         </div>
+        {/* once all 10 questions answered, result page appears */}
         <div className={`${this.state.isDone ? '' : 'hidden'}`}>
           <h2>Your results</h2>
           <p>You have {this.state.correct} correct questions and {this.state.incorrect} incorrect questions </p>
           <p>Your average score is {this.state.correct * 10}%</p>
-          <h3>{`${this.state.correct === 10 ? 'TERMINATOR' : 'GOOD JOB!'}`}</h3>
+          <h3>{`${this.state.correct === 10
+            ? 'TERMINATOR'
+            : 'GOOD JOB!'}`}</h3>
+          <img className='result-img' src={`${this.state.correct === 10
+            ? 'https://live.staticflickr.com/450/19869372178_6bf3dc0a10_b.jpg'
+            : 'https://upload.wikimedia.org/wikipedia/commons/b/be/Arnold_Schwarzenegger_2%2C_2012.jpg'}`} alt='arnold' />
+          <p>Will you be back?</p>  
           <button type='submit' onClick={this.handleStartOver}>Do it again</button>
         </div>
       </div>
@@ -146,8 +161,3 @@ class Question extends React.Component {
 }
 
 export default Question;
-
-
-// {this.state.data.map((question, i) => 
-//   <h2 key={i}>{question.question}</h2>
-//   )}

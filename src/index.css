@@ -53,6 +53,11 @@ button:hover {
   padding: 12px 0;
 }
 
+.result-img {
+  margin: auto;
+  width: 100%;
+}
+
 @media all and (min-width: 550px) {
   .main {
     width: 50%;
