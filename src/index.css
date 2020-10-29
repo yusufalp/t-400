@@ -1,5 +1,7 @@
 body {
-  margin: 0;
+  background-color: #262730;
+  color: #eff0d1;
+  margin: 10% 0;
   font-family: "Lora", serif, -apple-system, BlinkMacSystemFont, "Segoe UI",
     "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans",
     "Helvetica Neue", sans-serif;
@@ -25,32 +27,75 @@ h3 {
 p {
   font-family: "Montserrat", sans-serif;
 }
+
+form {
+  margin: auto;
+  width: 75%;
+}
+
 label {
   display: block;
+  cursor: pointer;
+  font-size: 18px;
+  margin: 24px 2%;
+}
+
+label:before {
+  content: "";
+  display: inline-block;
+  height: 18px;
+  width: 18px;
+  margin-right: 18px;
+  background: #ffffff;
+  border-radius: 50%;
+  z-index: 2;
+  transition: box-shadow 0.4s ease, background 0.4s ease;
+}
+
+input:checked + label:before {
+  background: #77ba99;
+}
+
+input[type="radio"] {
+  display: none;
 }
 
 button {
+  background-color: #77ba99;
   border: none;
   border-radius: 10px;
   font-size: 18px;
-  padding: 12px;
-  margin: 5%;
-  width: 40%;
+  padding: 12px 3px;
+  margin: 2%;
+  width: 46%;
 }
 
 button:hover {
-  transform: scale(1.2);
+  transform: scale(1.05);
 }
 
-.main {
+.title {
   width: 90%;
   margin: auto;
 }
 
+.content {
+  margin-left: 2%;
+}
+
 .feedback {
-  border: 3px solid aquamarine;
+  border: 3px solid #77ba99;
   border-radius: 10px;
-  padding: 12px 0;
+  padding: 12px 6px;
+  margin-left: 2%;
+}
+
+.selection-feed {
+  border: 3px solid #d33f49;
+  background-color: #d33f49;
+  border-radius: 10px;
+  padding: 12px 6px;
+  margin-left: 2%;
 }
 
 .result-img {
@@ -58,8 +103,18 @@ button:hover {
   width: 100%;
 }
 
-@media all and (min-width: 550px) {
-  .main {
-    width: 50%;
+.result p{
+  text-align: center;
+}
+
+@media all and (min-width: 330px) {
+  button {
+    padding: 12px;
+  }
+}
+
+@media all and (min-width: 620px) {
+  .title {
+    width: 60%;
   }
 }

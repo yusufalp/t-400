@@ -103,7 +103,7 @@ class Question extends React.Component {
   }
   render() {
     return (
-      <div className='main'>
+      <div className='title'>
         <div className={`${this.state.isDone ? 'hidden' : ''}`}>
           {/* scoreboard */}
           <h2>Question #: {this.state.currentQuestionNumber}</h2>
@@ -112,16 +112,18 @@ class Question extends React.Component {
           <form>
             <p>{this.state.currentQuestion.question || ''}</p>
             {this.state.currentChoices.map((choice, i) =>
-              <label key={i} htmlFor={choice}>
+              <>
+
                 <input
+                  id={choice}
                   type='radio'
                   name='choice'
                   value={choice}
                   onChange={e => this.handleChoice(e.target.value)}
                   checked={this.state.userChoice === choice}
                 />
-                {choice}
-              </label>
+                <label key={i} htmlFor={choice}>{choice}</label>
+              </>
             )}
             {/* if no answers is chosen on submit, message appears */}
             <p className={`selection-feed ${this.state.isAnswerChosen ? 'hidden' : ''}`}>You MUST select an answer</p>
@@ -142,7 +144,7 @@ class Question extends React.Component {
           </form>
         </div>
         {/* once all 10 questions answered, result page appears */}
-        <div className={`${this.state.isDone ? '' : 'hidden'}`}>
+        <div className={`result ${this.state.isDone ? '' : 'hidden'}`}>
           <h2>Your results</h2>
           <p>You have {this.state.correct} correct questions and {this.state.incorrect} incorrect questions </p>
           <p>Your average score is {this.state.correct * 10}%</p>
@@ -152,10 +154,10 @@ class Question extends React.Component {
           <img className='result-img' src={`${this.state.correct === 10
             ? 'https://live.staticflickr.com/450/19869372178_6bf3dc0a10_b.jpg'
             : 'https://upload.wikimedia.org/wikipedia/commons/b/be/Arnold_Schwarzenegger_2%2C_2012.jpg'}`} alt='arnold' />
-          <p>Will you be back?</p>  
+          <p>Will you be back?</p>
           <button type='submit' onClick={this.handleStartOver}>Do it again</button>
         </div>
-      </div>
+      </div >
     );
   }
 }
