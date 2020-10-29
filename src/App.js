@@ -1,10 +1,13 @@
 import React from 'react';
 import { Route, Switch } from 'react-router-dom';
 import Home from './Home/Home';
-import Question from './Question/Question';
-import Results from './Results/Results';
+import Trivia from './Trivia/Trivia';
+import Page404 from './Page404/Page404';
 
 class App extends React.Component {
+  handleStart() {
+    this.props.history.push('/question')
+  }
   render() {
     return (
       <div className='App'>
@@ -14,12 +17,11 @@ class App extends React.Component {
             component={Home}
           />
           <Route
-            path='/question'
-            component={Question}
+            path='/trivia'
+            component={Trivia}
           />
           <Route
-            path='/results'
-            component={Results}
+            component={Page404}
           />
         </Switch>
       </div>

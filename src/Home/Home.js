@@ -1,14 +1,19 @@
 import React from 'react';
-import Start from '../Start/Start';
 
 class Home extends React.Component {
+  handleStart = () => {
+    this.props.history.push('/trivia')
+  }
   render() {
     return (
-      <div>
+      <div className='main'>
         <h1>Welcome to T-400</h1>
-        <h2>where we are going to test your limits and endurance. JK, this is just a game</h2>
+        <h2>where we are going to test your limits and endurance.</h2>
+        <p>JK, this is just a game</p>
         <p>if you get all 10 questions correct though, you will be called 'Terminator'... of this trivia game :)</p>
-        <Start />
+        <p>Ready to start?</p>
+        <button type='submit' onClick={this.handleStart}>Yes</button>
+        <button type='submit' onClick={this.handleStart}>Absolutely Yes!</button>
       </div>
     );
   }
