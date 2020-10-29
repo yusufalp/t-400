@@ -112,8 +112,7 @@ class Question extends React.Component {
           <form>
             <p>{this.state.currentQuestion.question || ''}</p>
             {this.state.currentChoices.map((choice, i) =>
-              <>
-
+              <div key={i}>
                 <input
                   id={choice}
                   type='radio'
@@ -121,14 +120,15 @@ class Question extends React.Component {
                   value={choice}
                   onChange={e => this.handleChoice(e.target.value)}
                   checked={this.state.userChoice === choice}
+                  disabled={this.state.showFeedback ? true : false}
                 />
-                <label key={i} htmlFor={choice}>{choice}</label>
-              </>
+                <label htmlFor={choice}>{choice}</label>
+              </div>
             )}
             {/* if no answers is chosen on submit, message appears */}
-            <p className={`selection-feed ${this.state.isAnswerChosen ? 'hidden' : ''}`}>You MUST select an answer</p>
+            <p className={`feedback select-feed ${this.state.isAnswerChosen ? 'hidden' : ''}`}>You MUST select an answer</p>
             {/* feedback displayed depending on the user choice */}
-            <p className={`feedback ${this.state.showFeedback ? '' : 'hidden'}`}>{this.state.feedback}</p>
+            <p className={`feedback ${this.state.showFeedback ? '' : 'hidden'} ${this.state.userChoice === this.state.currentQuestion.correct ? 'correct' : 'wrong'}`}>{this.state.feedback}</p>
             <button
               className={`${this.state.showFeedback ? 'hidden' : ''}`}
               type='submit'
@@ -157,7 +157,7 @@ class Question extends React.Component {
           <p>Will you be back?</p>
           <button type='submit' onClick={this.handleStartOver}>Do it again</button>
         </div>
-      </div >
+      </div>
     );
   }
 }
