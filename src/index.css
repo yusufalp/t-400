@@ -9,11 +9,6 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
-    monospace;
-}
-
 .hidden {
   display: none;
 }
@@ -84,18 +79,24 @@ button:hover {
 }
 
 .feedback {
-  border: 3px solid #77ba99;
   border-radius: 10px;
   padding: 12px 6px;
   margin-left: 2%;
 }
 
-.selection-feed {
+.correct {
+  border: 3px solid #77ba99;
+  color: #77ba99;
+}
+
+.wrong {
+  border: 3px solid #d33f49;
+  color: #d33f49;
+}
+
+.select-feed {
   border: 3px solid #d33f49;
   background-color: #d33f49;
-  border-radius: 10px;
-  padding: 12px 6px;
-  margin-left: 2%;
 }
 
 .result-img {
@@ -103,8 +104,14 @@ button:hover {
   width: 100%;
 }
 
-.result p{
+.result p {
   text-align: center;
+}
+
+.not-found img {
+  display: block;
+  margin: auto;
+  width: 75%;
 }
 
 @media all and (min-width: 330px) {
