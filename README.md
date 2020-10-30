@@ -59,4 +59,4 @@ https://github.com/yusufalp/t-400/issues
 
 ### Extra
 
-An optional `vercel` dependency will be install as well, if you want to deploy to vercel to make a live web app. You must have a vercel account to do that and if you chose to, just run `npm run deploy` in your terminal.
+An optional `vercel` dependency will be install as well, if you want to deploy to vercel to make a live web app. You must have a [vercel](https://vercel.com/) account to do that and if you chose to, just run `npm run deploy` in your terminal.
