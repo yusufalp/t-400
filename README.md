@@ -18,7 +18,7 @@ Install [dependencies](#dependencies):
 npm install
 ```
 
-tart the app (should start on http://localhost:3000/):
+start the app (should start on http://localhost:3000/):
 
 ```
 npm start
@@ -26,7 +26,7 @@ npm start
 
 ## What is it?
 
-This is a trivia game where you will be asked 10 questions randomly from (a question bank. 
+This is a trivia game where you will be asked 10 questions randomly from a question bank. 
 
 Each questions has multiple choice options. There is only ONE correct answer.
 
