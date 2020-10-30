@@ -1,0 +1,15 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Page404 component renders the UI as expected 1`] = `
+<div
+  className="title not-found"
+>
+  <h2>
+    Page not found!
+  </h2>
+  <img
+    alt="hasta la vista, baby"
+    src="https://thumbs.gfycat.com/CarefreeWhoppingFluke-max-1mb.gif"
+  />
+</div>
+`;
