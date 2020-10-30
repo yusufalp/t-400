@@ -43,6 +43,17 @@ User will be able to start the quiz again when a round is done with randomly cho
 
 There are several test suits included. To run the tests, run `npm test` or `npm t` in your terminal.
 
+## Dependencies
+
+```
+react @ 17.0.1
+enzyme @ 3.11.0
+vercel @ 20.1.2
+enzyme-adapter-react-16 @ 1.15.5
+react-router-dom @ 5.2.0
+react-scripts @ 4.0.0
+```
+
 ## Future features
 
 - [ ] User will be able to see what questions asked, what their answer was and whether they were correct in the results page
@@ -60,3 +71,6 @@ https://github.com/yusufalp/t-400/issues
 ### Extra
 
 An optional `vercel` dependency will be install as well, if you want to deploy to vercel to make a live web app. You must have a [vercel](https://vercel.com/) account to do that and if you chose to, just run `npm run deploy` in your terminal.
+
+NOTE: When this is done it builds the app for production to the build folder before deploying. It correctly bundles React in production mode and optimizes the build for the best performance. If you want to do that without deploying use `npm run build`
+
