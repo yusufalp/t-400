@@ -2,7 +2,7 @@ import React from 'react';
 
 class Home extends React.Component {
   handleStart = () => {
-    this.props.history.push('/trivia')
+    this.props.history.push('/trivia');
   }
   render() {
     return (

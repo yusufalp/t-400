@@ -1,7 +1,7 @@
 import React from 'react';
 import data from '../Apprentice_TandemFor400_Data.json';
 
-class Question extends React.Component {
+class Trivia extends React.Component {
   state = {
     // import all data from JSON file
     data: data,
@@ -110,7 +110,7 @@ class Question extends React.Component {
           <h3>Correct: {this.state.correct} - Incorrect: {this.state.incorrect}</h3>
           {/* question and the choices displayed one at a time */}
           <form>
-            <p>{this.state.currentQuestion.question || ''}</p>
+            <p className='question'>{this.state.currentQuestion.question || ''}</p>
             {this.state.currentChoices.map((choice, i) =>
               <div key={i}>
                 <input
@@ -162,4 +162,4 @@ class Question extends React.Component {
   }
 }
 
-export default Question;
+export default Trivia;

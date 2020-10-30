@@ -5,9 +5,6 @@ import Trivia from './Trivia/Trivia';
 import Page404 from './Page404/Page404';
 
 class App extends React.Component {
-  handleStart() {
-    this.props.history.push('/question')
-  }
   render() {
     return (
       <div className='App'>
