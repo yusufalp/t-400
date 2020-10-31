@@ -1,4 +1,5 @@
 import React from 'react';
+import Result from '../Result/Result';
 import data from '../Apprentice_TandemFor400_Data.json';
 
 class Trivia extends React.Component {
@@ -97,10 +98,6 @@ class Trivia extends React.Component {
       })
     }
   }
-  // user can start over with random question by clicking the start over button on the result page
-  handleStartOver = () => {
-    this.props.history.push('/')
-  }
   render() {
     return (
       <div className='title'>
@@ -145,17 +142,7 @@ class Trivia extends React.Component {
         </div>
         {/* once all 10 questions answered, result page appears */}
         <div className={`result ${this.state.isDone ? '' : 'hidden'}`}>
-          <h2>Your results</h2>
-          <p>You have {this.state.correct} correct questions and {this.state.incorrect} incorrect questions </p>
-          <p>Your average score is {this.state.correct * 10}%</p>
-          <h3>{`${this.state.correct === 10
-            ? 'TERMINATOR'
-            : 'GOOD JOB!'}`}</h3>
-          <img className='result-img' src={`${this.state.correct === 10
-            ? 'https://live.staticflickr.com/450/19869372178_6bf3dc0a10_b.jpg'
-            : 'https://upload.wikimedia.org/wikipedia/commons/b/be/Arnold_Schwarzenegger_2%2C_2012.jpg'}`} alt='arnold' />
-          <p>Will you be back?</p>
-          <button type='submit' onClick={this.handleStartOver}>Do it again</button>
+          <Result correct={this.state.correct} incorrect={this.state.incorrect} />
         </div>
       </div>
     );
