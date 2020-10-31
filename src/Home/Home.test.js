@@ -23,19 +23,14 @@ describe('Home component', () => {
 
   it("renders Home title", () => {
     const wrapper = shallow(<Home />);
-    const welcome = <h1>Welcome to T-400</h1>;
-    expect(wrapper.contains(welcome)).toEqual(true);
-  });
-
-  it('renders one h1 element that is the title', () => {
-    const wrapper = shallow(<Home />)
-    const title = wrapper.find('h1')
-    expect(title).toHaveLength(1)
+    const welcome = wrapper.find('h1');
+    expect(welcome).toHaveLength(1);
+    expect(welcome.text()).toEqual('Welcome to T-400');
   });
 
   it('renders button numbers', () => {
-    const wrapper = shallow(<Home />)
-    const button = wrapper.find('button')
-    expect(button).toHaveLength(2)
+    const wrapper = shallow(<Home />);
+    const button = wrapper.find('button');
+    expect(button).toHaveLength(2);
   })
 })
