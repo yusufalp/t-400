@@ -1,0 +1,36 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Result component renders the UI as expected 1`] = `
+<div>
+  <h2>
+    Your results
+  </h2>
+  <p>
+    You have 
+     correct questions and 
+     incorrect questions 
+  </p>
+  <p>
+    Your average score is 
+    NaN
+    %
+  </p>
+  <h3>
+    GOOD JOB!
+  </h3>
+  <img
+    alt="arnold"
+    className="result-img"
+    src="https://upload.wikimedia.org/wikipedia/commons/b/be/Arnold_Schwarzenegger_2%2C_2012.jpg"
+  />
+  <p>
+    Will you be back?
+  </p>
+  <button
+    onClick={[Function]}
+    type="submit"
+  >
+    Do it again
+  </button>
+</div>
+`;
