@@ -4,6 +4,8 @@
 
 Created by Yusuf Alp using React
 
+Live demo can be found at [https://t-400.vercel.app/](https://t-400.vercel.app/)
+
 ## How to run this game locally
 
 Clone the repo to your local machine:
