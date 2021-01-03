@@ -1,6 +1,6 @@
 import React from 'react';
-import Result from '../Result/Result';
 import data from '../Apprentice_TandemFor400_Data.json';
+import Result from '../Result/Result';
 
 class Trivia extends React.Component {
   state = {
@@ -44,7 +44,7 @@ class Trivia extends React.Component {
         currentChoices: choices.sort(() => .5 - Math.random())
       });
     } else {
-      this.componentDidMount()
+      this.componentDidMount();
     }
   }
   handleChoice = (value) => {
@@ -60,8 +60,8 @@ class Trivia extends React.Component {
     if (!this.state.userChoice) {
       this.setState({
         isAnswerChosen: false
-      })
-      return
+      });
+      return;
     }
 
     this.setState({
@@ -81,7 +81,7 @@ class Trivia extends React.Component {
     }
   }
   handleNext = (e) => {
-    e.preventDefault()
+    e.preventDefault();
     this.setState({
       currentQuestionNumber: this.state.currentQuestionNumber + 1,
       userChoice: '',
@@ -95,7 +95,7 @@ class Trivia extends React.Component {
     } else {
       this.setState({
         isDone: true
-      })
+      });
     }
   }
   render() {

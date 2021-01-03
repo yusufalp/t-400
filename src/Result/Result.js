@@ -1,5 +1,5 @@
 import React from 'react';
-import { withRouter } from 'react-router-dom'
+import { withRouter } from 'react-router-dom';
 
 class Result extends React.Component {
   // user can start over with random question by clicking the start over button on the result page
@@ -21,7 +21,7 @@ class Result extends React.Component {
         <p>Will you be back?</p>
         <button type='submit' onClick={this.handleStartOver}>Do it again</button>
       </div>
-    )
+    );
   }
 }
 
