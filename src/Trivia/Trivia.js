@@ -4,26 +4,21 @@ import Result from '../Result/Result';
 
 class Trivia extends React.Component {
   state = {
-    // import all data from JSON file
     data: data,
     // track the question number
     currentQuestionNumber: 1,
     // use the current question being chosen randomly and its choices 
     currentQuestion: {},
     currentChoices: [],
-    // use the user choice from the inputs
     userChoice: '',
-    // track the number of correct and incorrect answers
     correct: 0,
     incorrect: 0,
-    // once submitted, show the feedback
     showFeedback: false,
     feedback: '',
     // track the questions asked
     askedQuestions: [],
     // if user submits without an answer
     isAnswerChosen: true,
-    // when user answers all 10 questions
     isDone: false
   }
   componentDidMount() {
@@ -35,7 +30,6 @@ class Trivia extends React.Component {
     // so that the place of the correct choice is different all the time
     let choices = [...this.state.data[questionNumber].incorrect, this.state.data[questionNumber].correct];
 
-    // if questions is asked before in the same round, choose a different question
     if (!this.state.askedQuestions.includes(questionNumber)) {
       this.setState({
         askedQuestions: [...this.state.askedQuestions, questionNumber],
@@ -48,14 +42,12 @@ class Trivia extends React.Component {
     }
   }
   handleChoice = (value) => {
-    // retrieves the value of the user choice and confirms a valid choice is selected
     this.setState({
       userChoice: value,
       isAnswerChosen: true
     });
   }
   handleSubmit = (e) => {
-    // if nothing is selected, a message is displayed
     e.preventDefault();
     if (!this.state.userChoice) {
       this.setState({
@@ -67,7 +59,7 @@ class Trivia extends React.Component {
     this.setState({
       showFeedback: true
     });
-    // check the submitted answer, provide feedback and change correct/incorrect count
+
     if (this.state.userChoice === this.state.currentQuestion.correct) {
       this.setState({
         correct: this.state.correct + 1,
@@ -89,7 +81,6 @@ class Trivia extends React.Component {
       feedback: ''
     });
 
-    // show the results page after the 10 questions
     if (this.state.currentQuestionNumber < 10) {
       this.componentDidMount();
     } else {
@@ -102,10 +93,8 @@ class Trivia extends React.Component {
     return (
       <div className='title'>
         <div className={`${this.state.isDone ? 'hidden' : ''}`}>
-          {/* scoreboard */}
           <h2>Question #: {this.state.currentQuestionNumber}</h2>
           <h3>Correct: {this.state.correct} - Incorrect: {this.state.incorrect}</h3>
-          {/* question and the choices displayed one at a time */}
           <form>
             <p className='question'>{this.state.currentQuestion.question || ''}</p>
             {this.state.currentChoices.map((choice, i) =>
@@ -122,9 +111,7 @@ class Trivia extends React.Component {
                 <label htmlFor={choice}>{choice}</label>
               </div>
             )}
-            {/* if no answers is chosen on submit, message appears */}
             <p className={`feedback select-feed ${this.state.isAnswerChosen ? 'hidden' : ''}`}>You MUST select an answer</p>
-            {/* feedback displayed depending on the user choice */}
             <p className={`feedback ${this.state.showFeedback ? '' : 'hidden'} ${this.state.userChoice === this.state.currentQuestion.correct ? 'correct' : 'wrong'}`}>{this.state.feedback}</p>
             <button
               className={`${this.state.showFeedback ? 'hidden' : ''}`}
@@ -140,7 +127,6 @@ class Trivia extends React.Component {
             </button>
           </form>
         </div>
-        {/* once all 10 questions answered, result page appears */}
         <div className={`result ${this.state.isDone ? '' : 'hidden'}`}>
           <Result correct={this.state.correct} incorrect={this.state.incorrect} />
         </div>
